@@ -1,0 +1,189 @@
+/* Basisstil für Desktop (bleibt unverändert) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+thead {
+  display: table-header-group; /* Header sichtbar lassen */
+}
+
+thead th {
+  background-color: #007BFF;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+td {
+  text-align: center;
+  vertical-align: top;
+  padding: 2px; /* Mehr Padding für bessere Lesbarkeit */
+  background-color: #f9f9f9; /* Hintergrundfarbe für Zellen */
+  border: none; /* Entfernt Tabellenrand */
+}
+
+.course {
+  border: 1px solid #ddd; /* Hinzufügung eines Rahmens für jeden Kurs */
+  padding: 10px; /* Mehr Padding für mehr Platz innerhalb der Box */
+  margin-bottom: 20px; /* Abstand zwischen den Kursen */
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Hintergrundfarbe für die Kursbox */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Sicherstellen, dass der Inhalt oben ausgerichtet ist */
+}
+
+.course-time,
+.course-name,
+.course-target {
+  display: block;
+  text-align: center;
+  margin-bottom: 8px; /* Etwas mehr Abstand zwischen den Kursdetails */
+  min-height: 30px; /* Reservierter Platz für jedes Element */
+}
+
+.course-name {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #333;
+}
+/* Zielgruppe */
+.course-target {
+  font-size: 1rem;
+  color: #777;
+  min-height: 30px;
+  margin-bottom: 5px;  /* Verringert den Abstand zur nächsten Zeile */
+}
+
+/* Trainer */
+.course-trainer {
+  font-size: 0.9rem;
+  margin-top: 2px;  /* Verringert den Abstand zum vorherigen Element */ 
+  color: #333;
+  display: block;
+  text-align: center;
+  margin-bottom: 0px;
+  min-height: 30px; /* Reservierter Platz für jedes Element */
+}
+
+/* Sicherstellen, dass der Kurscontainer (course) nie leer ist und immer den Platz hält */
+/* .course.empty {
+  display: none; 
+} */
+
+.horizontal-line {
+  width: 100%; /* Breite der Linie */
+  height: 1px; /* Dicke der Linie */
+  background-color: lightgray;
+  border: none; /* Entfernt jegliche Ränder */
+}
+
+/* Mobile Ansicht */
+@media screen and (max-width: 768px) {
+
+
+  .course-trainer:empty {
+      display: none !important;
+  }
+
+  /* Verstecke leere Zielgruppenzeilen */
+  .course-target:empty {
+      display: none !important;
+  }
+
+  /* Sicherstellen, dass der Kurscontainer (course) nie leer ist und immer den Platz hält */
+  .course.empty {
+    display: none !important;
+  }
+
+
+  table {
+      display: block; /* Tabelle wird aufgelöst */
+      width: 100%; /* Full width */
+  }
+
+  thead {
+      display: none !important; /* Header ausblenden */
+  }
+
+  tbody {
+      display: block;
+      width: 100%;
+  }
+
+  /* Jede Zeile für die Tage untereinander */
+  .day-group {
+      display: block;
+      margin-bottom: 30px; /* Abstand zwischen Tagen */
+  }
+
+  /* Flex für jeden einzelnen Tag */
+  td[data-day] {
+      display: block;
+      width: 100%;
+      background-color: #007BFF; /* Blauer Hintergrund */
+      color: white; /* Weiße Schrift */
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center; /* Textzentrierung */
+      padding: 10px 0; /* Etwas mehr Padding für den Tag-Header */
+  }
+
+  /* Tagesnamen (Montag, Dienstag, etc.) als Überschrift */
+  td[data-day]:before {
+      content: attr(data-day); /* Tagesname anzeigen */
+      display: block; /* Block anzeigen, damit es die volle Breite einnimmt */
+      width: 100%; /* Vollständige Breite */
+      background-color: #007BFF; /* Blauer Hintergrund */
+      color: white; /* Weiße Schrift */
+      padding: 10px 0; /* Padding, um die Höhe zu vergrößern */
+      text-align: center; /* Textzentrierung */
+      font-size: 1.5rem;
+      font-weight: bold;
+      /* Entfernt Uppercase, damit der Text so bleibt, wie er eingegeben wurde */
+      text-transform: none; /* Keine Großschreibung mehr */
+  }
+
+  /* Kursanzeige unter den Tagen */
+  .course {
+      display: block;
+      margin-bottom: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+  }
+
+  /* Kurszeit */
+  .course-time {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #333; /* Gleiche Textfarbe wie Desktop */
+  }
+
+  /* Kursname */
+  .course-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333; /* Gleiche Textfarbe wie Desktop */
+  }
+
+  /* Trainer */
+  .course-trainer {
+      font-size: 0.9rem;
+      margin-top: 5px;
+      color: #333; /* Gleiche Textfarbe wie Desktop */
+  }
+
+  /* Zielgruppe */
+  .course-target {
+      font-size: 1rem;
+      color: #777; /* Gleiche Textfarbe wie Desktop */
+      min-height: 30px; /* Sicherstellen, dass auch bei leerer Zielgruppe Platz reserviert wird */
+  }
+}
