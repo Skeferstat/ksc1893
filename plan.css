@@ -70,6 +70,10 @@ td {
   min-height: 30px; /* Reservierter Platz für jedes Element */
 }
 
+.extern {
+  color: #973939;
+}
+
 /* Sicherstellen, dass der Kurscontainer (course) nie leer ist und immer den Platz hält */
 /* .course.empty {
   display: none; 
